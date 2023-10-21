@@ -1,19 +1,22 @@
 body {
   padding: 0px;
   margin: 0px;
-  background-color: black;
+  background-image: url(wall.jpg);
   color: white;
   font-family: Arial, sans-serif;
   text-align: center;
 }
 h1 {
+  font-family: "Vibur", cursive;
+  color: #c6e2ff;
   margin-top: 50px;
-  font-size: 36px;
-  text-shadow: 0 0 5px #00f,0 0 15px #00f,0 0 30px #00f,0 0 50px #00f;
-  animation: flicker 2s infinite backwards;
+  font-size: 42px;
+  animation: neon .08s ease-in-out infinite alternate;
+
   
 }
 .calculadora {
+  background-color: black;
   position: relative;
   display: grid;
   justify-content: center;
@@ -37,14 +40,15 @@ input {
   text-align: right;
   border:3px solid #ffa502;
   border-radius: 5px;
-  box-shadow:  0 0 1px #ffa502;
+  box-shadow:  0 0 5px #ffa502,0 0 15px #ffa502;
+  margin-bottom: 30px;
 }
 
 
 .calculadora button {
   position: relative;
   padding: 20px;
-  background: #171515;
+  background: black;
   color: #b360e7;
   font-size: 24px;
   border-radius: 5px;
@@ -65,7 +69,7 @@ input {
 }
 .calculadora button:hover{
   color: #fff;
-  box-shadow: 0 0 15px #b360e7;
+  box-shadow: 0 0 10px #b360e7,0 0 15px #b360e7;
   text-shadow: 0 0 15px #d35400;
   background-color: #b360e7;
 }
@@ -89,11 +93,46 @@ button::before{
   box-shadow: 0 0 15px #d35400;
   filter: blur(3px);
 }
-
-.rightButtons {
-  background: #5ec29a;
+@keyframes neonBorder {
+  from {
+    box-shadow:
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(30,132,242,0.52),
+    0 0 21px rgba(30,132,242,0.92),
+    0 0 34px rgba(30,132,242,0.78),
+    0 0 54px rgba(30,132,242,0.92);
+  }
+  to {
+    box-shadow:
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 30px rgba(202,228,225,0.42),
+    0 0 12px rgba(30,132,242,0.58),
+    0 0 22px rgba(30,132,242,0.84),
+    0 0 38px rgba(30,132,242,0.88),
+    0 0 60px rgba(30,132,242,1);
+  }
 }
-
+@keyframes neon {
+  from {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(30,132,242,0.52),
+    0 0 21px rgba(30,132,242,0.92),
+    0 0 34px rgba(30,132,242,0.78),
+    0 0 54px rgba(30,132,242,0.92);
+  }
+  to {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 30px rgba(202,228,225,0.42),
+    0 0 12px rgba(30,132,242,0.58),
+    0 0 22px rgba(30,132,242,0.84),
+    0 0 38px rgba(30,132,242,0.88),
+    0 0 60px rgba(30,132,242,1);
+  }
+}
 @keyframes flicker {
   0%{
     opacity:0.1;
@@ -117,12 +156,6 @@ button::before{
     opacity: 1;
   }
 
-}
-@keyframes parpadear{
-  to{
-    color: gray;
-    text-shadow: none;
-  }
 }
 @media (width <= 758px) {
   .calculadora {

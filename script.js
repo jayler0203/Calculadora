@@ -15,7 +15,7 @@ function calculatedResult() {
         display.value = result;
         currentInput = result.toString()
     }catch(error){
-        display.value = `${error}`
+        display.value = `error`
 
     }
     
