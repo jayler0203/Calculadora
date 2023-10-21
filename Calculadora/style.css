@@ -1,0 +1,137 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+h1 {
+  margin-top: 50px;
+  font-size: 36px;
+  text-shadow: 0 0 5px #00f,0 0 15px #00f,0 0 30px #00f,0 0 50px #00f;
+  animation: flicker 2s infinite backwards;
+  
+}
+.calculadora {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template: repeat(5, 4.5rem) / repeat(4, 9rem);
+  grid-gap: 15px;
+  max-width: 600px;
+  margin: 200px auto;
+  padding: 50px;
+  border:5px solid #1086e8;
+  border-radius: 20px;
+}
+
+input {
+  grid-column: 1/-1;
+  height: 100%;
+  background-color: black;
+  font-size: 24px;
+  color: #ffa502;
+  text-shadow: 0 0 6px #ffa502;
+  text-align: right;
+  border:3px solid #ffa502;
+  border-radius: 5px;
+  box-shadow:  0 0 1px #ffa502;
+}
+
+
+.calculadora button {
+  position: relative;
+  padding: 20px;
+  background: #171515;
+  color: #b360e7;
+  font-size: 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  border-color: #b360e7;
+}
+.calculadora::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  opacity: 0.1;
+  box-shadow: 0px 0px 78px 4px rgba(16, 134, 232, 0.73);
+  animation: flicker 2s infinite
+}
+.calculadora button:hover{
+  color: #fff;
+  box-shadow: 0 0 15px #b360e7;
+  text-shadow: 0 0 15px #d35400;
+  background-color: #b360e7;
+}
+
+button::before{
+  background: #00f;
+  content: '';
+  position: relative;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  transition: .5s;
+  transform: scale(.9);
+  z-index: -1;
+
+}
+.calculadora button:hover:before{
+  transform: scale(1.2);
+  box-shadow: 0 0 15px #d35400;
+  filter: blur(3px);
+}
+
+.rightButtons {
+  background: #5ec29a;
+}
+
+@keyframes flicker {
+  0%{
+    opacity:0.1;
+
+  }
+  2% {
+    opacity:1;
+
+  }
+  4% {
+    opacity:0.1;
+  }
+  
+  8% {
+    opacity:1;
+  }
+  70% {
+    opacity:0.7;
+  }
+  100%{
+    opacity: 1;
+  }
+
+}
+@keyframes parpadear{
+  to{
+    color: gray;
+    text-shadow: none;
+  }
+}
+@media (width <= 758px) {
+  .calculadora {
+    grid-template: repeat(5, 3.5rem) / repeat(4, 3.5rem);
+    width: 65%;
+    margin: 50px auto;
+    padding: 30px;
+  }
+  .calculadora button{
+    padding: 10px;
+  }
+}
